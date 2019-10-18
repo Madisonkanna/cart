@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "./CartContext";
 
 const Item = props => {
+  const [cart, setCart] = useContext(CartContext);
   const addToCart = () => {
-    console.log("clicked");
+    const item = { name: props.name, quantity: props.quantity };
+    setCart(items => [...items]);
   };
 
   const { name, quantity } = props;
